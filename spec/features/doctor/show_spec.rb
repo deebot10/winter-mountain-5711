@@ -13,18 +13,16 @@ RSpec.describe 'Doctor show' do
     visit doctor_path(@doctor)
   end    
     # User Story 1, Doctors Show Page
-    # ​
-    # As a visitor
-    # When I visit a doctor's show page
-    # I see all of that doctor's information including:
-    # - name
-    # - specialty
-    # - university where they got their doctorate
-    # And I see the name of the hospital where this doctor works
-    # And I see the names of all of the patients this doctor has
   it 'shows the doctor with attributes' do
     expect(page).to have_content(@doctor.name)  
     expect(page).to have_content(@doctor.specialty)  
     expect(page).to have_content(@doctor.university)  
+  end
+
+  it 'shows the doctors place of work and patient names' do
+    expect(page).to have_content(@hospital.name)
+    expect(page).to have_content(@patient_1.name)    
+    expect(page).to have_content(@patient_2.name)    
+    expect(page).to have_content(@patient_3.name)    
   end
 end
