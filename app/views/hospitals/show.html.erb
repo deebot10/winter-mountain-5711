@@ -1,3 +1,8 @@
 <h1>Hospital Show Page</h1>
 <p><%= @hospital.name %></p>
 <p>Number of Doctors:<%= @hospital.doctors.count%></p>
+
+<p>List of Schools:
+ <% @hospital.doctors.each do |doctor| %>
+   <%= doctor.university%>
+ <%end %>
