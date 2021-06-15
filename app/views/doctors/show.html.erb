@@ -6,4 +6,5 @@
   
   <% @doctor.patients.each do |patient|%>
     <p>Patients:<%= patient.name%></p>
+    <p><%= link_to "Remove #{patient.name}", visit doctor_path(@doctor)  %></p>
   <%end%>
