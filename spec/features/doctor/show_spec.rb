@@ -38,10 +38,11 @@ RSpec.describe 'Doctor show' do
     # NOTE: the patient record should not be deleted entirely
   it 'has a button to delete patients' do 
 
-    expect(page).to have_content('Remove Patient')
+    expect(page).to have_content("Remove #{@patient_1.name}")
     
-    click_link 'Remove Patient'
+    click_link "Remove #{@patient_1.name}"
 
     expect(current_path).to eq(doctor_path(@doctor))
+    expect(page).to_not have_content(@patient_1.name)
   end  
 end
